@@ -1,5 +1,6 @@
 package com.sky.dto;
 
+import com.sky.entity.Employee;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -18,5 +19,6 @@ public class EmployeeDTO implements Serializable {
     private String sex;
 
     private String idNumber;
+
 
 }
