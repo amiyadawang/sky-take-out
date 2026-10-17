@@ -93,5 +93,19 @@ public class EmployeeController {
         log.info("员工状态修改：{}", id);
         employeeService.startOrStop(status ,id);
         return Result.success();
+    }@ApiOperation("员工信息查询")
+    @GetMapping("/{id}")
+    public Result<Employee> getById(@PathVariable Long id) {
+        log.info("员工信息查询：{}", id);
+        return Result.success(employeeService.getById(id));
+    }
+    @PutMapping
+    @ApiOperation("员工信息修改")
+    public Result update(@RequestBody EmployeeDTO employeeDTO) {
+        log.info("员工信息修改：{}", employeeDTO);
+        employeeService.update(employeeDTO);
+        return Result.success();
+
+
     }
 }
