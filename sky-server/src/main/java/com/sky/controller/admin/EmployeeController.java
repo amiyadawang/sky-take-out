@@ -1,10 +1,12 @@
 package com.sky.controller.admin;
 
+import com.sky.annotation.AutoFill;
 import com.sky.constant.JwtClaimsConstant;
 import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
+import com.sky.enumeration.OperationType;
 import com.sky.properties.JwtProperties;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
@@ -75,7 +77,8 @@ public class EmployeeController {
     public Result<String> logout() {
         return Result.success();
     }
-    @ApiOperation("员工注册")
+
+       @ApiOperation("员工注册")
     @PostMapping
     public Result save(@RequestBody EmployeeDTO employeeDTO) {
         log.info("员工注册：{}", employeeDTO);
@@ -100,6 +103,7 @@ public class EmployeeController {
         return Result.success(employeeService.getById(id));
     }
     @PutMapping
+
     @ApiOperation("员工信息修改")
     public Result update(@RequestBody EmployeeDTO employeeDTO) {
         log.info("员工信息修改：{}", employeeDTO);
